@@ -1,7 +1,13 @@
-import { Box, PaletteMode, ThemeProvider } from "@mui/material";
+import { useState } from "react";
+
+// @Components
 import CocktailList from "../Cocktails/CocktailList";
 import Navbar from "./Navbar/NavBar";
-import { useState } from "react";
+
+// @MUI
+import { Box, PaletteMode, ThemeProvider } from "@mui/material";
+
+// @Theme
 import getTheme from "@theme/Theme";
 
 const Layout = () => {

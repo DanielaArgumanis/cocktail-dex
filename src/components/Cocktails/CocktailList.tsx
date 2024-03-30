@@ -1,6 +1,11 @@
-import { Grid } from "@mui/material";
+// @Components
 import CocktailCard from "./CocktailCard";
+
+// @Icons
 import { CosmopolitanIcon, GinTonicIcon, NegroniIcon, PinaColada } from "@icons";
+
+// @MUI
+import { Grid } from "@mui/material";
 
 const cocktails = [
     {

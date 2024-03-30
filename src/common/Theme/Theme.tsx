@@ -1,3 +1,4 @@
+// @MUI
 import { PaletteMode, createTheme } from "@mui/material";
 
 const getTheme = (mode: PaletteMode) => createTheme({

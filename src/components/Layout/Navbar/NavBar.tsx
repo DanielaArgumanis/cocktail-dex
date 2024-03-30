@@ -1,8 +1,12 @@
 
 // @Icons
 import { MoonIcon, SunIcon } from '@icons';
+
+// @MUI
 import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+
+// @Styles
 import { Search, SearchIconWrapper, StyledInputBase, ThemeIconButton } from './Navbar.styles';
 
 type NavbarProps = {

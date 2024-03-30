@@ -1,7 +1,13 @@
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import Chip from "@theme/Chip";
-import { LiquorColors } from "@theme/Theme.types";
 import React from "react";
+
+// @Components
+import Chip from "@theme/Chip";
+
+// @MUI
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+
+// @Types
+import { LiquorColors } from "@theme/Theme.types";
 
 type CocktailCardProps = {
     name: string;

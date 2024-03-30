@@ -1,3 +1,4 @@
+// @MUI
 import { IconButton, InputBase, alpha, keyframes, styled } from "@mui/material";
 
 export const Search = styled('div')(({ theme }) => ({
