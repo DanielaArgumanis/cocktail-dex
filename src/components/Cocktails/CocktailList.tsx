@@ -1,6 +1,11 @@
-import { Grid } from "@mui/material";
+// @Components
 import CocktailCard from "./CocktailCard";
+
+// @Icons
 import { CosmopolitanIcon, GinTonicIcon, NegroniIcon, PinaColada } from "@icons";
+
+// @MUI
+import { Grid } from "@mui/material";
 
 const cocktails = [
     {
@@ -26,8 +31,8 @@ const cocktails = [
 ]
 
 const CocktailList = () => {
-    return <Grid container spacing={3}>
-        {cocktails.map((cocktail)=> <CocktailCard {...cocktail}/>)}
+    return <Grid container spacing={3} sx={{marginY: 4}}>
+        {cocktails.map((cocktail)=> <CocktailCard {...cocktail} key={cocktail.name}/>)}
     </Grid>
 }
 

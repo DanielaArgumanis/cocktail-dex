@@ -1,15 +1,13 @@
 
 import './App.css'
-import theme from '@theme/Theme';
+
+// @Components
 import Layout from './components/Layout/Layout'
-import { ThemeProvider } from '@emotion/react';
 
 function App() {
 
   return (
-    <ThemeProvider theme={theme}>
       <Layout/>
-    </ThemeProvider>
   )
 }
 

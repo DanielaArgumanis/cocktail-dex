@@ -1,9 +1,15 @@
 
-import MuiChip, { ChipProps } from '@mui/material/Chip';
-import { ChipOverrideProps } from './Chip.types';
+// @Components
+import MuiChip from '@mui/material/Chip';
+
+// @MUI
 import { styled } from '@mui/material';
 
-const LiquorChip = (props: ChipProps) => (
+// @Types
+import { ChipOverrideProps } from './Chip.types';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const LiquorChip = ({chipColor, ...props}: ChipOverrideProps) => (
     <MuiChip data-testid="DOT-chip" {...props}/>
   );
   
