@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit-Regular.ttf') format('truetype');
+  font-weight: normal;
+
+  font-weight: 700;
+  src: url('/fonts/Outfit-Bold.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
