@@ -1,8 +1,8 @@
-import { createTheme } from "@mui/material";
+import { PaletteMode, createTheme } from "@mui/material";
 
-const theme = createTheme({
+const getTheme = (mode: PaletteMode) => createTheme({
   palette: {
-  mode: 'dark',
+  mode: mode,
   liquor: {
     gin: '#42a5f5',
     rum: '#BCAAA4',
@@ -10,6 +10,10 @@ const theme = createTheme({
     vermouth: '#CE93D8',
     vodka: '#BDBDBD',
     cointreau: '#ff7043',
+  },
+  background: {
+    default: mode === 'dark' ? '#13171B' : '#F8FAFB',
+    paper: mode === 'dark' ? '#121212' : '#FFFFFF',
   }
 },
 typography: {
@@ -18,4 +22,4 @@ typography: {
 });
 
 
-  export default theme;
+  export default getTheme;

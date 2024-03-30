@@ -1,12 +1,19 @@
-import { Box } from "@mui/material";
+import { Box, PaletteMode, ThemeProvider } from "@mui/material";
 import CocktailList from "../Cocktails/CocktailList";
+import Navbar from "./Navbar/NavBar";
+import { useState } from "react";
+import getTheme from "@theme/Theme";
 
 const Layout = () => {
-    return <Box sx={{height: '100vh', width: '100vw'}}>
-        <Box sx={{margin: 'auto', maxWidth:'1024px', paddingY: 4, width: '100%'}}>
+    const [colorMode, setColorMode] = useState<PaletteMode>('dark');
+    return  <ThemeProvider theme={()=>getTheme(colorMode)}>
+        <Box sx={{height: '100vh', width: '100vw', backgroundColor: 'background.default'}}>
+        <Box sx={{margin: 'auto', maxWidth:'1536px', padding: {sm: 4, xs: 2}, width: '100%'}}>
+            <Navbar colorMode={colorMode} handleUpdateColorMode={setColorMode}/>
             <CocktailList/>
         </Box>
     </Box>
+    </ThemeProvider>
 }
 
 export default Layout;
