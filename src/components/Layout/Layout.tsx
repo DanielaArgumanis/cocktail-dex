@@ -6,7 +6,9 @@ import getTheme from "@theme/Theme";
 
 const Layout = () => {
     const [colorMode, setColorMode] = useState<PaletteMode>('dark');
-    return  <ThemeProvider theme={()=>getTheme(colorMode)}>
+    const theme = getTheme(colorMode);
+
+    return  <ThemeProvider theme={theme}>
         <Box sx={{height: '100vh', width: '100vw', backgroundColor: 'background.default'}}>
         <Box sx={{margin: 'auto', maxWidth:'1536px', padding: {sm: 4, xs: 2}, width: '100%'}}>
             <Navbar colorMode={colorMode} handleUpdateColorMode={setColorMode}/>

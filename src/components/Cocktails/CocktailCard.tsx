@@ -21,7 +21,7 @@ const CocktailCard = ({name, liquorList, svg}: CocktailCardProps) => {
         <Typography marginTop={8}>{name}</Typography>
         <Box sx={{display: 'flex', gap: 1, justifyContent: 'center', marginY: 2}}>
             {
-                liquorList.map((liquor)=> <Chip label={liquor} chipColor={liquor.toLowerCase() as keyof LiquorColors}/>)
+                liquorList.map((liquor)=> <Chip key={liquor} label={liquor} chipColor={liquor.toLowerCase() as keyof LiquorColors}/>)
             }
         </Box>
     </CardContent>

@@ -27,7 +27,7 @@ const cocktails = [
 
 const CocktailList = () => {
     return <Grid container spacing={3} sx={{marginY: 4}}>
-        {cocktails.map((cocktail)=> <CocktailCard {...cocktail}/>)}
+        {cocktails.map((cocktail)=> <CocktailCard {...cocktail} key={cocktail.name}/>)}
     </Grid>
 }
 

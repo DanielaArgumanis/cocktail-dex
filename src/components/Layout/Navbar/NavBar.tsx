@@ -28,9 +28,8 @@ const Navbar = ({ colorMode, handleUpdateColorMode }: NavbarProps) => {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: 'flex' }}>
-            <ThemeIconButton aria-label="change theme">
-                {colorMode === 'dark' && <SunIcon onClick={handleChangeTheme}/>}
-                {colorMode === 'light' && <MoonIcon onClick={handleChangeTheme}/>}
+            <ThemeIconButton aria-label="change theme" onClick={handleChangeTheme}>
+                {colorMode === 'dark' ? <SunIcon /> : <MoonIcon/>}
             </ThemeIconButton>
           </Box>
     </Box>
