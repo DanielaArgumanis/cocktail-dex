@@ -1,10 +1,12 @@
+// @Components
+import Chip from "@theme/Chip";
+
 // @MUI
 import { Box, List, ListItem, ListItemText, Modal, Typography } from "@mui/material"
 
 // @Types
 import { CocktailCardProps } from "./Cocktail.types";
 import { LiquorColors } from "@theme/Theme.types";
-import Chip from "@theme/Chip";
 
 const style = {
     position: 'absolute',
