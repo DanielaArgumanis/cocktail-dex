@@ -39,7 +39,12 @@ const Layout = () => {
     }, [])
 
     const handleInputChange = (input: string) => {
-        const newFilteredList = cocktailList.filter(cocktail => cocktail.name.toLowerCase().includes(input.toLowerCase()))
+        const newFilteredList = cocktailList.filter(cocktail => {
+            if (cocktail.name.toLowerCase().includes(input.toLowerCase())) {
+                return true;
+            }
+            return cocktail.liquorList.some((liquor)=> liquor.toLowerCase().includes(input.toLowerCase()))
+        })
         setFilteredCocktailList(newFilteredList);
     }
 
