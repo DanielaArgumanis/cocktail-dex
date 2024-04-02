@@ -39,23 +39,45 @@ const Layout = () => {
     }, [])
 
     const handleInputChange = (input: string) => {
-        const newFilteredList = cocktailList.filter(cocktail => {
-            if (cocktail.name.toLowerCase().includes(input.toLowerCase())) {
-                return true;
-            }
-            return cocktail.liquorList.some((liquor)=> liquor.toLowerCase().includes(input.toLowerCase()))
-        })
-        setFilteredCocktailList(newFilteredList);
-    }
+      const newFilteredList = cocktailList.filter((cocktail) => {
+        if (cocktail.name.toLowerCase().includes(input.toLowerCase())) {
+          return true;
+        }
+        return cocktail.liquorList.some((liquor) =>
+          liquor.toLowerCase().includes(input.toLowerCase()),
+        );
+      });
+      setFilteredCocktailList(newFilteredList);
+    };
 
-    return  <ThemeProvider theme={theme}>
-        <Box sx={{height: '100vh', width: '100vw', backgroundColor: 'background.default'}}>
-        <Box sx={{margin: 'auto', maxWidth:'1536px', padding: {sm: 4, xs: 2}, width: '100%'}}>
-            <CocktailSearchBar colorMode={colorMode} handleUpdateColorMode={setColorMode} handleInputChange={handleInputChange}/>
-            <CocktailList cocktailList={filteredCocktailList}/>
+    return (
+      <ThemeProvider theme={theme}>
+        <Box
+          sx={{
+            width: '100vw',
+            backgroundColor: 'background.default',
+          }}
+        >
+          <Box
+            sx={{
+              margin: 'auto',
+              maxWidth: '1536px',
+              padding: { sm: 4, xs: 2 },
+              width: '100%',
+            }}
+          >
+            <CocktailSearchBar
+              colorMode={colorMode}
+              handleUpdateColorMode={setColorMode}
+              handleInputChange={handleInputChange}
+            />
+            <CocktailList
+              cocktailList={[...filteredCocktailList, ...filteredCocktailList]}
+            />
+          </Box>
         </Box>
-    </Box>
-    </ThemeProvider>
+      </ThemeProvider>
+    );
 }
 
 export default Layout;

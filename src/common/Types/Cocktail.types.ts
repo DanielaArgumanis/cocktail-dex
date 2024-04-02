@@ -7,15 +7,15 @@ export type Cocktail = {
 }
 
 export type CocktailResponse = {
-    [key: string]: {
-        name: string;
-        svgIcon: string;
-        recipe: string;
-        ingredients: {
-            [key: string]: string;
-        }
-        liquorList: {
-            [key: string]: string;
-        }
-    }
-}
+  [key: string]: {
+    name: string;
+    svgIcon: string;
+    recipe: string;
+    ingredients: {
+      [key: string]: string;
+    };
+    liquorList: {
+      [key: string]: string;
+    };
+  };
+};

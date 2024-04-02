@@ -10,11 +10,11 @@ export { default as SunIcon } from './sun-icon.svg?react';
 import styled from '@emotion/styled';
 
 const SVGIconWrapper = styled.div<{
-    size?: string;
-  }>`
-    height: ${({ size }) => size};
-    width: ${({ size }) => size};
-  `;
+  size?: string;
+}>`
+  height: ${({ size }) => size};
+  width: ${({ size }) => size};
+`;
 
 type SVGIconProps = {
   icon: React.FunctionComponent;
