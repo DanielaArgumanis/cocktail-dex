@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@commonComponents/*": ["src/common/components/*"],
+      "@commonComponents/*": ["src/common/Components/*"],
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/common/Constants/*"],
       "@hooks/*": ["src/common/Hooks/*"],
@@ -10,6 +10,7 @@
       "@images/*": ["src/common/Images/*"],
       "@styles/*": ["src/common/Styles/*"],
       "@theme/*": ["src/common/Theme/*"],
+      "types/*": ["src/common/Types/*"],
       "@utils/*": ["src/common/Utils/*"]
     },
     "target": "ES2020",
@@ -32,6 +33,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "firebase-config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

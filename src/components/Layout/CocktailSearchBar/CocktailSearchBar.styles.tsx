@@ -2,20 +2,20 @@
 import { IconButton, InputBase, alpha, keyframes, styled } from "@mui/material";
 
 export const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: theme.palette.background.paper,
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.background.paper, 0.5),
-    },
-    marginRight: theme.spacing(4),
-    marginLeft: 0,
-    width: '100%',
-    boxShadow: 'rgba(0,0,0,0.25) 0 10px 10px',
-    [theme.breakpoints.down('sm')]: {
-      marginRight: theme.spacing(1),
-    },
-  }));
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: theme.palette.background.paper,
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.background.paper, 0.5),
+  },
+  marginRight: theme.spacing(4),
+  marginLeft: 0,
+  width: '100%',
+  boxShadow: 'rgba(0,0,0,0.25) 0 10px 10px',
+  [theme.breakpoints.down('sm')]: {
+    marginRight: theme.spacing(1),
+  },
+}));
   
   export  const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),

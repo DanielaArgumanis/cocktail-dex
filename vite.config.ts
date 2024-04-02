@@ -8,7 +8,7 @@ export default defineConfig({
   publicDir: 'public',
   resolve: {
     alias: {
-      '@commonComponents': '/src/common/components',
+      '@commonComponents': '/src/common/Components',
       '@components': '/src/components',
       '@constants': '/src/common/Constants',
       '@hooks': '/src/common/Hooks',
@@ -16,6 +16,7 @@ export default defineConfig({
       '@images': '/src/common/Images',
       '@styles': '/src/common/Styles',
       '@theme': '/src/common/Theme',
+      'types': '/src/common/Types',
       '@utils': '/src/common/Utils',
     },
   },
