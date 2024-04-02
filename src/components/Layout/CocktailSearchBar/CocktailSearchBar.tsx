@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 // @Styles
-import { Search, SearchIconWrapper, StyledInputBase, ThemeIconButton } from './Navbar.styles';
+import { Search, SearchIconWrapper, StyledInputBase, ThemeIconButton } from './CocktailSearchBar.styles';
 
 type NavbarProps = {
   colorMode: 'light' | 'dark';

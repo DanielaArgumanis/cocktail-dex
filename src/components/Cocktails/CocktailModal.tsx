@@ -5,8 +5,8 @@ import Chip from "@theme/Chip";
 import { Box, List, ListItem, ListItemText, Modal, Typography } from "@mui/material"
 
 // @Types
-import { CocktailCardProps } from "./Cocktail.types";
 import { LiquorColors } from "@theme/Theme.types";
+import { Cocktail } from "types/Cocktail.types";
 
 const style = {
     position: 'absolute',
@@ -25,7 +25,9 @@ const style = {
     borderRadius: '12px'
   };
 
-const CocktailModal = ({name, liquorList, svg: SvgIcon, isOpen, setIsOpen, recipe, ingredients}: CocktailCardProps & {isOpen: boolean, setIsOpen: (isOpen: boolean)=> void}) => {
+const CocktailModal = ({isOpen, setIsOpen, cocktail}: {cocktail: Cocktail, isOpen: boolean, setIsOpen: (isOpen: boolean)=> void}) => {
+    const {name, liquorList, svgIcon, ingredients, recipe} = cocktail;
+
     return  <Modal
         open={isOpen}
         onClick={(e) => e.stopPropagation()} 
@@ -34,8 +36,8 @@ const CocktailModal = ({name, liquorList, svg: SvgIcon, isOpen, setIsOpen, recip
         aria-describedby="modal-modal-description"
     >
         <Box sx={{...style, borderColor: `liquor.${liquorList[0].toLowerCase() as keyof LiquorColors}`}}>
-            <SvgIcon height={100} width={100}/>
-            <Typography id="modal-modal-title" variant="h6" color="text.primary">
+            {svgIcon}
+            <Typography id="modal-modal-title" variant="h6" color="text.primary" marginTop={4}>
             {name}
             </Typography>
             

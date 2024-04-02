@@ -2,19 +2,19 @@ import { useState } from "react";
 
 // @Components
 import Chip from "@theme/Chip";
+import CocktailModal from "./CocktailModal";
 
 // @MUI
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 
 // @Types
 import { LiquorColors } from "@theme/Theme.types";
-import CocktailModal from "./CocktailModal";
-import { CocktailCardProps } from "./Cocktail.types";
+import { Cocktail } from "types/Cocktail.types";
 
 
-const CocktailCard = (props: CocktailCardProps) => {
+const CocktailCard = ({cocktail}: {cocktail: Cocktail}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const { name, liquorList, svg: SvgIcon } = props;
+    const { name, liquorList, svgIcon } = cocktail;
 
     return <Grid item lg={3} md={4} sm={6} xs={12} sx={{
         display: 'flex', justifyContent: 'center', position: 'relative', marginTop: '50px', '& svg': {
@@ -22,7 +22,7 @@ const CocktailCard = (props: CocktailCardProps) => {
             top: '-40px'
         }
     }}>
-        <SvgIcon height={100} width={100} />
+        {svgIcon}
         <Card 
                 onClick={() => setIsOpen(true)}
          variant="outlined" sx={{
@@ -38,7 +38,7 @@ const CocktailCard = (props: CocktailCardProps) => {
                 </Box>
             </CardContent>
         </Card>
-        <CocktailModal {...props} isOpen={isOpen} setIsOpen={setIsOpen} />
+        <CocktailModal cocktail={cocktail} isOpen={isOpen} setIsOpen={setIsOpen} />
     </Grid>
 }
 
