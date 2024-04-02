@@ -12,9 +12,10 @@ import { Search, SearchIconWrapper, StyledInputBase, ThemeIconButton } from './C
 type NavbarProps = {
   colorMode: 'light' | 'dark';
   handleUpdateColorMode: (colorMode: 'light' | 'dark') => void;
+  handleInputChange: (input: string) => void;
 };
 
-const Navbar = ({ colorMode, handleUpdateColorMode }: NavbarProps) => {
+const Navbar = ({ colorMode, handleUpdateColorMode, handleInputChange }: NavbarProps) => {
   const handleChangeTheme = () => {
     handleUpdateColorMode(colorMode === 'light' ? 'dark' : 'light');
   };
@@ -28,6 +29,7 @@ const Navbar = ({ colorMode, handleUpdateColorMode }: NavbarProps) => {
             <StyledInputBase
               placeholder="Search cocktails..."
               inputProps={{ 'aria-label': 'search cocktails' }}
+              onChange={(event)=>handleInputChange(event.target.value)}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />

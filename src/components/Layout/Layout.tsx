@@ -20,13 +20,16 @@ import { formatCocktailList } from "@utils/CocktailHelpers";
 const Layout = () => {
     const [colorMode, setColorMode] = useState<PaletteMode>('dark');
     const [cocktailList, setCocktailList] = useState<Cocktail[]>([]);
+    const [filteredCocktailList, setFilteredCocktailList] = useState<Cocktail[]>([]);
     const theme = getTheme(colorMode);
     const dbRef = ref(getDatabase());
 
     useEffect(()=> {
         get(child(dbRef, '/cocktailList')).then((snapshot) => {
         if (snapshot.exists()) {
-            setCocktailList(formatCocktailList(snapshot.val()))
+            const formattedCocktailList = formatCocktailList(snapshot.val());
+            setCocktailList(formattedCocktailList)
+            setFilteredCocktailList(formattedCocktailList)
         } else {
             console.log("No data available");
         }
@@ -35,11 +38,16 @@ const Layout = () => {
         });
     }, [])
 
+    const handleInputChange = (input: string) => {
+        const newFilteredList = cocktailList.filter(cocktail => cocktail.name.toLowerCase().includes(input.toLowerCase()))
+        setFilteredCocktailList(newFilteredList);
+    }
+
     return  <ThemeProvider theme={theme}>
         <Box sx={{height: '100vh', width: '100vw', backgroundColor: 'background.default'}}>
         <Box sx={{margin: 'auto', maxWidth:'1536px', padding: {sm: 4, xs: 2}, width: '100%'}}>
-            <CocktailSearchBar colorMode={colorMode} handleUpdateColorMode={setColorMode}/>
-            <CocktailList cocktailList={cocktailList}/>
+            <CocktailSearchBar colorMode={colorMode} handleUpdateColorMode={setColorMode} handleInputChange={handleInputChange}/>
+            <CocktailList cocktailList={filteredCocktailList}/>
         </Box>
     </Box>
     </ThemeProvider>
