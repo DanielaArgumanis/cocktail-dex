@@ -24,60 +24,72 @@ const Layout = () => {
     const theme = getTheme(colorMode);
     const dbRef = ref(getDatabase());
 
-    useEffect(()=> {
-        get(child(dbRef, '/cocktailList')).then((snapshot) => {
+    
+  const handleUpdateColorMode = () => {
+    const newColorMode = colorMode === 'light' ? 'dark' : 'light';
+    setColorMode(newColorMode);
+    localStorage.setItem('theme', newColorMode);
+  };
+
+  useEffect(() => {
+    const mode = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    if (mode) {
+      setColorMode(mode);
+    }
+    get(child(dbRef, '/cocktailList'))
+      .then((snapshot) => {
         if (snapshot.exists()) {
-            const formattedCocktailList = formatCocktailList(snapshot.val());
-            setCocktailList(formattedCocktailList)
-            setFilteredCocktailList(formattedCocktailList)
+          const formattedCocktailList = formatCocktailList(snapshot.val());
+          setCocktailList(formattedCocktailList);
+          setFilteredCocktailList(formattedCocktailList);
         } else {
-            console.log("No data available");
+          console.log('No data available');
         }
-        }).catch((error) => {
+      })
+      .catch((error) => {
         console.error(error);
-        });
-    }, [])
-
-    const handleInputChange = (input: string) => {
-      const newFilteredList = cocktailList.filter((cocktail) => {
-        if (cocktail.name.toLowerCase().includes(input.toLowerCase())) {
-          return true;
-        }
-        return cocktail.liquorList.some((liquor) =>
-          liquor.toLowerCase().includes(input.toLowerCase()),
-        );
       });
-      setFilteredCocktailList(newFilteredList);
-    };
+  }, []);
 
-    return (
-      <ThemeProvider theme={theme}>
+  const handleInputChange = (input: string) => {
+    const newFilteredList = cocktailList.filter((cocktail) => {
+      if (cocktail.name.toLowerCase().includes(input.toLowerCase())) {
+        return true;
+      }
+      return cocktail.liquorList.some((liquor) =>
+        liquor.toLowerCase().includes(input.toLowerCase()),
+      );
+    });
+    setFilteredCocktailList(newFilteredList);
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          minHeight: '100vh',
+          width: '100vw',
+          backgroundColor: 'background.default',
+        }}
+      >
         <Box
           sx={{
-            width: '100vw',
-            backgroundColor: 'background.default',
+            margin: 'auto',
+            maxWidth: '1300px',
+            padding: { sm: 4, xs: 2 },
+            width: '100%',
           }}
         >
-          <Box
-            sx={{
-              margin: 'auto',
-              maxWidth: '1536px',
-              padding: { sm: 4, xs: 2 },
-              width: '100%',
-            }}
-          >
-            <CocktailSearchBar
-              colorMode={colorMode}
-              handleUpdateColorMode={setColorMode}
-              handleInputChange={handleInputChange}
-            />
-            <CocktailList
-              cocktailList={[...filteredCocktailList, ...filteredCocktailList]}
-            />
-          </Box>
+          <CocktailSearchBar
+            colorMode={colorMode}
+            handleUpdateColorMode={handleUpdateColorMode}
+            handleInputChange={handleInputChange}
+          />
+          <CocktailList cocktailList={filteredCocktailList} />
         </Box>
-      </ThemeProvider>
-    );
+      </Box>
+    </ThemeProvider>
+  );
 }
 
 export default Layout;

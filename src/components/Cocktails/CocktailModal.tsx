@@ -1,12 +1,19 @@
 // @Components
-import Chip from "@theme/Chip";
+import Chip from '@commonComponents/Chip';
 
 // @MUI
-import { Box, List, ListItem, ListItemText, Modal, Typography } from "@mui/material"
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  Modal,
+  Typography,
+} from '@mui/material';
 
 // @Types
-import { LiquorColors } from "@theme/Theme.types";
-import { Cocktail } from "types/Cocktail.types";
+import { LiquorColors } from '@theme/Theme.types';
+import { Cocktail } from 'types/Cocktail.types';
 
 const style = {
   position: 'absolute',
@@ -15,7 +22,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   paddingY: 4,
   paddingX: 8,
@@ -23,6 +29,7 @@ const style = {
   flexDirection: 'column',
   alignItems: 'center',
   borderRadius: '12px',
+  outline: 'none',
 };
 
 const CocktailModal = ({
@@ -35,7 +42,6 @@ const CocktailModal = ({
   setIsOpen: (isOpen: boolean) => void;
 }) => {
   const { name, liquorList, svgIcon, ingredients, recipe } = cocktail;
-
   return (
     <Modal
       open={isOpen}
@@ -47,8 +53,9 @@ const CocktailModal = ({
       <Box
         sx={{
           ...style,
+          border: '4px solid',
           borderColor: `liquor.${
-            liquorList[0].toLowerCase() as keyof LiquorColors
+            liquorList[0].replace(' ', '').toLowerCase() as keyof LiquorColors
           }`,
         }}
       >
@@ -64,19 +71,27 @@ const CocktailModal = ({
         </Typography>
 
         <Box
-          sx={{ display: 'flex', gap: 1, justifyContent: 'center', marginY: 2 }}
+          sx={{
+            display: 'flex',
+            gap: 1,
+            justifyContent: 'center',
+            marginY: 2,
+            flexWrap: 'wrap',
+          }}
         >
           {liquorList.map((liquor) => (
             <Chip
               key={liquor}
               label={liquor}
-              chipColor={liquor.toLowerCase() as keyof LiquorColors}
+              chipColor={
+                liquor.replace(' ', '').toLowerCase() as keyof LiquorColors
+              }
             />
           ))}
         </Box>
         <List dense disablePadding>
           {ingredients.map((ingredient) => (
-            <ListItem disablePadding>
+            <ListItem disablePadding key={ingredient}>
               <ListItemText
                 primary={ingredient}
                 sx={{ color: 'text.primary', textAlign: 'center' }}

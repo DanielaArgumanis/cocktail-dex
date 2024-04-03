@@ -1,32 +1,38 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { Palette } from '@mui/material/styles';
 import { ChipPropsColorOverrides } from '@mui/material/Chip';
 
-
 export type LiquorColors = {
-    gin: string;
-    rum: string,
-    campari: string,
-    vermouth: string,
-    vodka: string,
-    cointreau: string,
-}
+  apperol: string;
+  brandy: string;
+  campari: string;
+  champagne: string;
+  cointreau: string;
+  darkrum: string;
+  gin: string;
+  kahlua: string;
+  pisco: string;
+  sweetvermouth: string;
+  tequila: string;
+  vodka: string;
+  whiskey: string;
+  whiterum: string;
+};
 
 declare module '@mui/material/styles' {
-    interface Palette {
-        liquor: LiquorColors;
-    }
+  interface Palette {
+    liquor: LiquorColors;
+  }
 
-    interface PaletteOptions {
-        liquor?: LiquorColors;
-    }
+  interface PaletteOptions {
+    liquor?: LiquorColors;
+  }
 }
 
 declare module '@mui/material/Chip' {
-    interface ChipPropsColorOverrides {
-        liquor: {
-            gin: true;
-          };
-    }
+  interface ChipPropsColorOverrides {
+    liquor: {
+      gin: true;
+    };
   }
+}
