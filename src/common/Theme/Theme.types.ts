@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Palette } from '@mui/material/styles';
-import { ChipPropsColorOverrides } from '@mui/material/Chip';
-
 export type LiquorColors = {
   apperol: string;
   brandy: string;
