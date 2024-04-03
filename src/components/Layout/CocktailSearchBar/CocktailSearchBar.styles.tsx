@@ -10,8 +10,11 @@ export const Search = styled('div')(({ theme }) => ({
   },
   marginRight: theme.spacing(4),
   marginLeft: 0,
-  width: '100%',
+  width: '50%',
   boxShadow: 'rgba(0,0,0,0.25) 0 10px 10px',
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+  },
   [theme.breakpoints.down('sm')]: {
     marginRight: theme.spacing(1),
   },

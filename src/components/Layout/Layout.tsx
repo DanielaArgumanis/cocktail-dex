@@ -54,6 +54,7 @@ const Layout = () => {
       <ThemeProvider theme={theme}>
         <Box
           sx={{
+            minHeight: '100vh',
             width: '100vw',
             backgroundColor: 'background.default',
           }}
@@ -61,7 +62,7 @@ const Layout = () => {
           <Box
             sx={{
               margin: 'auto',
-              maxWidth: '1536px',
+              maxWidth: '1300px',
               padding: { sm: 4, xs: 2 },
               width: '100%',
             }}
@@ -71,9 +72,7 @@ const Layout = () => {
               handleUpdateColorMode={setColorMode}
               handleInputChange={handleInputChange}
             />
-            <CocktailList
-              cocktailList={[...filteredCocktailList, ...filteredCocktailList]}
-            />
+            <CocktailList cocktailList={filteredCocktailList} />
           </Box>
         </Box>
       </ThemeProvider>
