@@ -45,7 +45,7 @@ const CocktailCard = ({ cocktail }: { cocktail: Cocktail }) => {
         }}
       >
         <CardContent sx={{ textAlign: 'center' }}>
-          <Typography marginTop={6} variant="h6" fontWeight="bold">
+          <Typography marginTop={5} variant="h6" fontWeight="bold">
             {name}
           </Typography>
           <Box
