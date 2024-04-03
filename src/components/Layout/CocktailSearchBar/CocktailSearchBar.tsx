@@ -15,7 +15,7 @@ import {
 
 type NavbarProps = {
   colorMode: 'light' | 'dark';
-  handleUpdateColorMode: (colorMode: 'light' | 'dark') => void;
+  handleUpdateColorMode: () => void;
   handleInputChange: (input: string) => void;
 };
 
@@ -24,10 +24,6 @@ const Navbar = ({
   handleUpdateColorMode,
   handleInputChange,
 }: NavbarProps) => {
-  const handleChangeTheme = () => {
-    handleUpdateColorMode(colorMode === 'light' ? 'dark' : 'light');
-  };
-
   return (
     <Box sx={{ display: 'flex', marginY: 2 }}>
       <Search>
@@ -42,7 +38,10 @@ const Navbar = ({
       </Search>
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: 'flex' }}>
-        <ThemeIconButton aria-label="change theme" onClick={handleChangeTheme}>
+        <ThemeIconButton
+          aria-label="change theme"
+          onClick={handleUpdateColorMode}
+        >
           {colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
         </ThemeIconButton>
       </Box>
